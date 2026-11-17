@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Resume of Lindsay Gaudinier, Technical Lead and Staff Front-End Engineer specializing in React, TypeScript, and accessible web architectures.">
+  <title>Lindsay Gaudinier | Technical Lead &amp; Staff Front-End Engineer</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --surface-color: #f8fafc;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --accent-color: #6300A6;
+      /* WCAG AA compliant contrast on white */
+      --accent-hover: #115e59;
+      --border-color: #cbd5e1;
+      --focus-ring: #0284c7;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg-color);
+    }
+
+    /* Accessible Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--accent-color);
+      color: #ffffff;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    /* Focus visibility */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .container {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Header & Contact */
+    header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin: 0 0 0.25rem;
+      font-size: 2.25rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      color: var(--accent-color);
+
+    }
+
+    .subtitle {
+      margin: 0 0 1rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--accent-color);
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .contact-list a {
+      color: var(--text-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .contact-list a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Navigation */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+    }
+
+    nav a {
+      color: var(--accent-color);
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover {
+      color: var(--accent-hover);
+      border-bottom-color: var(--accent-hover);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.5rem;
+      scroll-margin-top: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+      margin: 0 0 1.25rem;
+      color: var(--text-primary);
+    }
+
+    /* Experience & Education Entries */
+    .entry {
+      margin-bottom: 1.75rem;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.25rem 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+    }
+
+    .org {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .date {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .entry ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.25rem;
+    }
+
+    .entry li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Skills Definition List */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin: 0;
+    }
+
+    @media (min-width: 600px) {
+      .skills-grid {
+        grid-template-columns: 14rem 1fr;
+      }
+    }
+
+    .skills-grid dt {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .skills-grid dd {
+      margin: 0;
+      color: var(--text-secondary);
+    }
+
+    /* Presentations & Personal */
+    .item-list {
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+
+    .item-list li {
+      margin-bottom: 0.6rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        font-size: 10.5pt;
+        line-height: 1.4;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .skip-link,
+      nav,
+      footer {
+        display: none;
+      }
+
+      section {
+        margin-bottom: 1.5rem;
+        break-inside: avoid;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--text-primary);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="container">
+    <header>
+      <h1>Lindsay Gaudinier</h1>
+      <p class="subtitle">Technical Lead &amp; Staff Front-End Engineer</p>
+
+      <ul class="contact-list" aria-label="Contact information">
+        <li>Clayton, CA</li>
+        <li><a href="mailto:legaudinier@hotmail.com">legaudinier@hotmail.com</a></li>
+        <li><a href="https://github.com/legaudinier" target="_blank"
+            rel="noopener noreferrer">github.com/legaudinier</a></li>
+      </ul>
+
+      <nav aria-label="Resume sections">
+        <ul>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#presentations">Presentations</a></li>
+          <li><a href="#personal">Personal</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- EXPERIENCE SECTION -->
+      <section id="experience" aria-labelledby="heading-experience">
+        <h2 id="heading-experience">Experience</h2>
+
+        <article class="entry">
+          <div class="entry-header">
+            <div>
+              <h3>Technical Lead &amp; Staff Software Engineer</h3>
+              <span class="org">Premier Inc.</span>
+              <p></p>
+            </div>
+            <span class="date"><time datetime="2023-09">September 2023</time> &ndash; November 2026</span>
+          </div>
+          <ul>
+            <li>Brought the Contract Explorer POC to a fully functioning product, fixed pain points and addressed
+              immediate business needs while meeting stakeholder expectations</li>
+            <li>Successfully coordinated with cross-functional teams to build a human-in-the-loop AI product that gives
+              contextual highlighted citations to users for legal terms, history, and statement of work in contracts
+            </li>
+            <li>Planned scaling and architecture for 1400% label growth from hard-coded database key labels to labels
+              decoupled from code release, and implemented proactive tooling to track system failures, replacing
+              $120,000 yearly subscription</li>
+            <li>Led greenfield project Sourcing Roadmap, translated ambiguous business needs into a fully-fledged
+              product, delivered on time</li>
+            <li>Architected product that replaced static excel report taking weeks of manual labor into a customizable
+              feature that generated sourcing reports</li>
+            <li>Led the full stack redesign of the Spend Overview feature using React, TypeScript, and GraphQL,
+              translating Figma designs into an intuitive, responsive user journey that secured $1.2M in contract
+              renewals</li>
+            <li>Architected performance optimizations and asynchronous data-fetching patterns in React and TypeScript,
+              eliminating timeout errors across data-heavy enterprise dashboards</li>
+            <li>Integrate AI-assisted engineering workflows and human-in-the-loop solutions to accelerate delivery and
+              maintain code quality.</li>
+
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-header">
+            <div>
+              <h3>Senior Software Engineer</h3>
+              <span class="org">Premier Inc. (formerly Medpricer / Conductiv)</span>
+            </div>
+            <span class="date"><time datetime="2019-07">July 2019</time> &ndash; <time datetime="2023-09">September
+                2023</time></span>
+          </div>
+          <ul>
+            <li>Member of original team of engineers leading to Medpricer acquisition by Premier Inc.</li>
+            <li>Partnered closely with UX/UI designers in Figma to build reusable React component libraries (Storybook,
+              Material UI) and accessible, pixel-perfect responsive interfaces
+            </li>
+            <li>Quick to ask questions and clarify, fill in gaps in AC, and thrive in a start-up environment.
+            </li>
+            <li>Demonstrated ability to ramp up quickly on new tech stacks and workflows, excelling as a contributor
+              comfortable wearing multiple hats</li>
+            <li>Prominent voice in hiring and growing the engineering team 600%, spearheaded interview framework and
+              shaped the engineering culture
+            </li>
+
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-header">
+            <div>
+              <h3>Full-Stack Software Engineer</h3>
+              <span class="org">Hook 42</span>
+            </div>
+            <span class="date"><time datetime="2013-02">February 2013</time> &ndash; <time datetime="2019-07">July
+                2019</time></span>
+          </div>
+          <ul>
+            <li>Fullstack Drupal development work, SEO, multilingual development, user experience, and maintenance</li>
+            <li>Speaker and contributor to open source knowledge through Drupal Camps and blog posts</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills" aria-labelledby="heading-skills">
+        <h2 id="heading-skills">Skills</h2>
+        <dl class="skills-grid">
+          <dt>Languages</dt>
+          <dd>JavaScript (ES6+), TypeScript, HTML5, CSS3, SQL</dd>
+
+          <dt>Frameworks &amp; Libraries</dt>
+          <dd>React, Redux, GraphQL, Jest, React Testing Library, Storybook, Material UI</dd>
+
+          <dt>Architecture &amp; Practices</dt>
+          <dd>Design Systems, WCAG Accessibility, Microservices, RESTful APIs, Human-in-the-Loop AI, Agile/Scrum</dd>
+
+          <dt>Tools &amp; Cloud</dt>
+          <dd>Figma, Git, Claude Code, GitHub Copilot, Azure, Azure CosmosDB, Azure Blob Storage</dd>
+        </dl>
+      </section>
+
+      <!-- EDUCATION SECTION -->
+      <section id="education" aria-labelledby="heading-education">
+        <h2 id="heading-education">Education</h2>
+
+        <article class="entry">
+          <div class="entry-header">
+            <div>
+              <h3>Bachelor of Arts, History | 3.75 GPA</h3>
+              <span class="org">University of California, Santa Barbara </span>
+            </div>
+            <span class="date"><time datetime="2007">2007</time> &ndash; <time datetime="2011">2011</time></span>
+          </div>
+          <ul>
+            <li>Cum laude, with Distinction</li>
+            <li>Undergraduate Honors Thesis: "The Western Shoshone and the Nevada Test Site"</li>
+            <li>Received Undergraduate Research and Creative Studies Grant for undergraduate thesis</li>
+            <li>Honorable Mention from the UCSB Emeriti Association Judges of the Undergraduate Research Colloquium
+            </li>
+            <li>Dean's Honors x 6</li>
+            <li>NCAA Division I Scholarship Athlete, Women's Swimming</li>
+            <li>UCSB Big West Swimmer of the Week</li>
+            <li>Named Women's Swimming Scholar-Athlete of the Year</li>
+          </ul>
+          <div class="entry-header">
+            <div>
+              <h3>Various Computer Science Classes | 4.0 GPA</h3>
+              <span class="org">Chabot College</span>
+            </div>
+            <span class="date"><time datetime="2007">2013</time> &ndash; <time datetime="2011">2014</time></span>
+          </div>
+          <ul>
+            <li>Computer Science courses include Java, Python, C++, Visual Basic, HTML/CSS, and Intro to Linux/Unix</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="presentations" aria-labelledby="heading-presentations">
+        <h2 id="heading-presentations">Presentations &amp; Speaking</h2>
+        <ul class="item-list">
+          <li>
+            <div class="entry-header">
+              <div>
+                <h3>Drupal 8 Custom Module Architecture: What’s Going On?</h3>
+              </div>
+              <span class="date">2018 GovCon | August 28, 2018 | National Institutes of Health, Bethesda Maryland</span>
+            </div>
+            <p>
+              It is all fun and games modifying existing code, but what about when you
+              have to venture out to unknown waters and create your own custom module?
+              Don’t worry! We can get through this together! This talk is a deep dive
+              into creating custom modules from scratch, and the role of each
+              component in the final product.
+            </p>
+            <ul>
+              <li>
+                <a
+                  href="https://www.drupalgovcon.org/2018/program/sessions/drupal-8-custom-module-architecture-whats-going">Presentation</a>
+              </li>
+              <li>
+                <a href="https://legaudinier.github.io/Custom-Module-Presentation/#/">
+                  Slides for Drupal 8 Custom Module Architecture
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/legaudinier/Custom-Module-Presentation-Capable-Module">
+                  Capable custom module code on GitHub
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="entry-header">
+              <div>
+                <h3>Internet 101: Things everyone assumed I knew, but I did not.</h3>
+              </div>
+              <span class="date">2018 Stanford Drupal Camp | April 6, 2018 | Stanford University, Palo Alto </span>
+            </div>
+            <p>
+              Even Sherlock Holmes doesn’t know everything. There are simply too many acronyms and technologies to
+              understand.
+              This talk will discuss some of the concepts I’ve touched, but never really understood with a focus on
+              computer networking. Let’s look underneath the hood and see what’s going on.
+            </p>
+            <ul>
+              <li>
+                <a href="https://legaudinier.github.io/Internet-101-Things-Everyone-Assumed-I-Knew-But-I-Did-Not/#/">
+                  Slides for Internet 101
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="entry-header">
+              <div>
+                <h3>Ready, Git Set, Go!</h3>
+              </div>
+              <span class="date">2017 BadCamp | October 20, 2017 | University of California, Berkeley </span>
+            </div>
+            <p>
+              Let’s go over the jargon and basic set up of git in a safe space.
+              Git is a magical gift from Linus Torvalds, but it is also a monster that needs its occasional blood
+              sacrifice.
+              Let’s git the basics down (head, rebase, pull, push, branches, repository, remote, merge, stash,
+              cherry-pick, conflicts and more!). We can git through this together!
+            </p>
+            <ul>
+              <li>
+                <a href="https://legaudinier.github.io/Ready-Git-Set-Go/#/">
+                  Slides for Ready, Git Set, Go!
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="entry-header">
+              <div>
+                <h3>Montreal or Bust! Hook 42 is going to Drupal North!</h3>
+              </div>
+              <span class="date">Drupal North | June 13, 2026 | Montréal, Québec</span>
+            </div>
+            <p>
+              Search Engine Optimization (SEO) is vital to websites that want to increase their visibility and get to
+              the top rank on search engines.
+              Navigating the sea of Drupal SEO modules can be daunting when all you want to do is get the basics covered
+              effectively. They will go over SEO terms and terminology, modules and their default configuration, and
+              tips and tricks on how to make your Drupal site rank higher with the search engines.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="personal" aria-labelledby="heading-community-personal">
+        <h2 id="heading-personal">Community &amp; Personal</h2>
+        <ul class="item-list">
+          <li>
+            <h3>Volunteering</h3>
+            <ul class="item-list">
+              <li>
+                <div class="entry-header">
+                  <h4>Human Milk Donor</h4>
+                  <span class="date">Mother's Milk Bank - San Jose, CA | December 2022 - July 2026 </span>
+                </div>
+                <span>
+                  Completed rigorous health screening and donated 6000 ounces of milk to support premature and
+                  critically ill infants.
+                  Maintained consistent, high-quality donations, adhering to strict safety and labeling standards.
+                </span>
+              </li>
+              <li>
+                <div class="entry-header">
+                  <h4>Walnut Creek Masters Swim Team - Board Member</h4>
+                  <span class="date">Walnut Creek Masters Swim Team - Walnut Creek, CA | January 2016 - January 2021
+                  </span>
+                </div>
+                <span>
+                  Webmaster for team unify website for 500+ users, weekly emails, and organized volunteers for team
+                  events.
+                  Financial oversight, fundraising, helped guide the direction of the nonprofit
+                </span>
+              </li>
+              <li>
+                <div class="entry-header">
+                  <h4>Walnut Creek Masters - Adult Learn to Swim Teacher</h4>
+                  <span class="date">Walnut Creek Masters Swim Team - Walnut Creek, CA | October 2021
+                  </span>
+                </div>
+                <span>
+                  Created a low-pressure, supportive environment helping fearful or novice adult swimmers master breath
+                  control, floating, and water safety.
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>Personal Projects</h3>
+            <ul>
+              <li> <a href="https://legaudinier.github.io/data-visualization/">
+                  Data Visualization
+                </a></li>
+            </ul>
+            <ul>
+              <li> <a href="https://legaudinier.github.io/swimWorkouts/">
+                  Swim Workout Generator
+                </a></li>
+            </ul>
+
+          </li>
+          <h3>Swim Achievements</h3>
+          <ul>
+            <li> <a href="https://www.usms.org/people/06NAP">
+                U.S. Masters Swim
+              </a></li>
+            <li> <a href="https://www.tahoeopenwater.org/results/lake-tahoe-true-width-swim-results/">
+                Lake Tahoe True Width Marathon Swim | August 17, 2019
+              </a> </li>
+          </ul>
+
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <time datetime="2026">2026</time> Lindsay Gaudinier. Built with semantic HTML5 and CSS.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
