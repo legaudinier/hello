@@ -613,8 +613,14 @@
     </main>
 
     <footer>
-      <p>&copy; <time datetime="2026">2026</time> Lindsay Gaudinier. Built with semantic HTML5 and CSS.</p>
-    </footer>
+  <p>&copy; <time id="copyright-year" datetime="2026">2026</time> Lindsay Gaudinier. Built with semantic HTML5 and CSS.</p>
+  <script>
+    const yearEl = document.getElementById('copyright-year');
+    const currentYear = new Date().getFullYear().toString();
+    yearEl.textContent = currentYear;
+    yearEl.setAttribute('datetime', currentYear);
+  </script>
+</footer>
   </div>
 </body>
 
