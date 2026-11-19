@@ -67,7 +67,7 @@
       top: 1rem;
     }
 
-     /* Focus visibility */
+    /* Focus visibility */
     a:focus-visible,
     button:focus-visible {
       outline: 3px solid var(--focus-ring);
@@ -113,7 +113,7 @@
       gap: 1.5rem;
     }
 
-    .contact-list li{
+    .contact-list li {
       display: inline-flex;
       align-items: center;
       margin: 0 0 1.25rem;
@@ -130,6 +130,31 @@
 
     .contact-list a:hover {
       color: var(--accent-color);
+    }
+
+    @media (max-width: 915px) {
+      .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 .5rem 0 ;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: start;
+        gap: 0;
+      }
+
+      .contact-list li {
+        margin: 0 0 .25rem;
+      }
+
+      .contact-list li,
+      .contact-list a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+      }
     }
 
     /* Navigation */
@@ -513,17 +538,19 @@
             </p>
             <ul>
               <li>
-                <a
-                  href="https://www.drupalgovcon.org/2018/program/sessions/drupal-8-custom-module-architecture-whats-going" target="_blank" rel="noopener noreferrer">Presentation
+                <a href="https://www.drupalgovcon.org/2018/program/sessions/drupal-8-custom-module-architecture-whats-going"
+                  target="_blank" rel="noopener noreferrer">Presentation
                   Recording</a>
               </li>
               <li>
-                <a href="https://legaudinier.github.io/Custom-Module-Presentation/#/" target="_blank" rel="noopener noreferrer">
+                <a href="https://legaudinier.github.io/Custom-Module-Presentation/#/" target="_blank"
+                  rel="noopener noreferrer">
                   Slides for Drupal 8 Custom Module Architecture
                 </a>
               </li>
               <li>
-                <a href="https://github.com/legaudinier/Custom-Module-Presentation-Capable-Module" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/legaudinier/Custom-Module-Presentation-Capable-Module" target="_blank"
+                  rel="noopener noreferrer">
                   Capable custom module code on GitHub
                 </a>
               </li>
@@ -545,7 +572,8 @@
             </p>
             <ul>
               <li>
-                <a href="https://legaudinier.github.io/Internet-101-Things-Everyone-Assumed-I-Knew-But-I-Did-Not/#/" target="_blank" rel="noopener noreferrer">
+                <a href="https://legaudinier.github.io/Internet-101-Things-Everyone-Assumed-I-Knew-But-I-Did-Not/#/"
+                  target="_blank" rel="noopener noreferrer">
                   Slides for Internet 101
                 </a>
               </li>
@@ -640,7 +668,8 @@
             <ul class="item-list">
               <li>
                 <div class="entry-header">
-                  <h4><a href="https://legaudinier.github.io/data-visualization/" target="_blank" rel="noopener noreferrer">
+                  <h4><a href="https://legaudinier.github.io/data-visualization/" target="_blank"
+                      rel="noopener noreferrer">
                       Data Visualization
                     </a></h4>
                   <span>Used React, TypeScript, and D3.js to turn raw datasets into responsive, dynamic charts. Still
@@ -670,7 +699,8 @@
                   </a></h4>
               </li>
               <li>
-                <h4><a href="https://www.tahoeopenwater.org/results/lake-tahoe-true-width-swim-results/" target="_blank" rel="noopener noreferrer">
+                <h4><a href="https://www.tahoeopenwater.org/results/lake-tahoe-true-width-swim-results/" target="_blank"
+                    rel="noopener noreferrer">
                     Lake Tahoe True Width Marathon Swim | August 17, 2019
                   </a></h4>
               </li>
